@@ -7,9 +7,17 @@ console.log(userName);
 if (url !== '') {
     url = `https://api.github.com/users/${userName}`;
 }
+const getDate = new Promise((resolve, reject) => {
+  setTimeout(() => new Date ? resolve(new Date) : reject(new Error('Время неизвестно')), 1000);
+});
+const getUser = fetch(url);
 
-fetch(url)
-    .then(res => res.json())
+Promise.all([getUser, getDate])
+  .then(([userData, nowDate]) => {
+    data = userData;
+    date = nowDate;
+  })
+    .then(res => data.json())
     .then(json => {
       if (json.message == 'Not Found')
       {
@@ -38,6 +46,10 @@ fetch(url)
           let img = document.createElement('img');
           img.src = json.avatar_url;
           body.appendChild(img);
+
+          let p = document.createElement('p');
+          p.innerHTML = date;
+          content.appendchild(p);
         }
     })
     .catch(err => alert(err));
