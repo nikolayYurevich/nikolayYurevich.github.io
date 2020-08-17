@@ -47,9 +47,9 @@ Promise.all([getUser, getDate])
           img.src = json.avatar_url;
           body.appendChild(img);
 
-          let p = document.createElement('p');
-          p.innerHTML = date;
-          content.appendchild(p);
+          let d = document.createElement('p');
+          d.innerHTML = date;
+          body.appendchild(d);
         }
     })
     .catch(err => alert(err));
