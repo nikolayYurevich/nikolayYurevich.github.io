@@ -45,12 +45,12 @@ Promise.all([getUser, getDate])
 
           let d = document.createElement('p');
           d.innerHTML = date;
-          body.appendchild(d);
+          body.append(d);
 
           let img = document.createElement('img');
           img.src = json.avatar_url;
           body.appendChild(img);
-        
+
         }
     })
     .catch(err => alert(err));
