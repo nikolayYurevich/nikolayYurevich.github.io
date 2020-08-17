@@ -43,13 +43,14 @@ Promise.all([getUser, getDate])
           text.innerHTML = "Ментор молодец ;)";
           body.appendChild(text);
 
-          let img = document.createElement('img');
-          img.src = json.avatar_url;
-          body.appendChild(img);
-
           let d = document.createElement('p');
           d.innerHTML = date;
           body.appendchild(d);
+
+          let img = document.createElement('img');
+          img.src = json.avatar_url;
+          body.appendChild(img);
+        
         }
     })
     .catch(err => alert(err));
