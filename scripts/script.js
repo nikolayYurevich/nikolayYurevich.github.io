@@ -2,14 +2,16 @@ let body = document.body;
 let url = window.location.search;
 const preloader = document.querySelector('.loader');
 let userName =url.split('=')[1];
-console.log(url);
-console.log(userName);
-//userName = 'NikolayYurevich';
+//console.log(url);
+//console.log(userName);
+if (userName == undefined) {
+  userName = 'NikolayYurevich';
+}
 if (url !== '') {
     url = `https://api.github.com/users/${userName}`;
 }
 const getDate = new Promise((resolve, reject) => {
-  setTimeout(() => new Date ? resolve(new Date) : reject(new Error('Время неизвестно')), 1000);
+  setTimeout(() => new Date ? resolve(new Date) : reject(new Error('Время неизвестно')), 3000);
 });
 const getUser = fetch(url);
 
@@ -20,7 +22,7 @@ Promise.all([getUser, getDate])
   })
     .then(res => data.json())
     .then(json => {
-      preloader.style.display = 'none';      
+      preloader.style.display = 'none';
 
       if (json.message == 'Not Found')
       {
