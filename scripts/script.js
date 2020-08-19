@@ -1,8 +1,8 @@
 let body = document.body;
 let url = window.location.search;
-const preloader = document.querySelector('.loader');
+const preloader = document.getElementById('load');
 let userName = 'NikolayYurevich';
-if (url.indexOf('='))
+if (url.indexOf('=') > 0)
 {
     userName=url.split('=')[1];
 }
