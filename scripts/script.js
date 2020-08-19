@@ -1,5 +1,6 @@
 let body = document.body;
 let url = window.location.search;
+const preloader = document.querySelector('.loader');
 let userName =url.split('=')[1];
 console.log(url);
 console.log(userName);
@@ -19,6 +20,8 @@ Promise.all([getUser, getDate])
   })
     .then(res => data.json())
     .then(json => {
+      preloader.style.display = 'none';      
+
       if (json.message == 'Not Found')
       {
           let text = document.createElement('p');
@@ -50,6 +53,7 @@ Promise.all([getUser, getDate])
           let img = document.createElement('img');
           img.src = json.avatar_url;
           body.appendChild(img);
+
 
         }
     })
