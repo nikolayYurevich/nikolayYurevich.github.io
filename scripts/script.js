@@ -22,7 +22,7 @@ Promise.all([getUser, getDate])
   })
     .then(res => data.json())
     .then(json => {
-      preloader.style.display = 'none';
+      preloader.classList.add('hidden');
 
       if (json.message == 'Not Found')
       {
