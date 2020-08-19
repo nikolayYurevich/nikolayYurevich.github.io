@@ -1,12 +1,12 @@
 let body = document.body;
 let url = window.location.search;
-const preloader = document.querySelector('.loader');
-let userName =url.split('=')[1];
-//console.log(url);
-//console.log(userName);
-if (userName == undefined) {
-  userName = 'NikolayYurevich';
+const preloader = document.querySelector('loader');
+let userName = 'NikolayYurevich';
+if (url.indexOf('='))
+{
+    userName=url.split('=')[1];
 }
+console.log(preloader);
 if (url !== '') {
     url = `https://api.github.com/users/${userName}`;
 }
@@ -22,7 +22,7 @@ Promise.all([getUser, getDate])
   })
     .then(res => data.json())
     .then(json => {
-      preloader.classList.add('hidden');
+      preloader.style.display = 'none';
 
       if (json.message == 'Not Found')
       {
