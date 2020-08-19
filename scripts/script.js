@@ -1,6 +1,6 @@
 let body = document.body;
 let url = window.location.search;
-let preloader = document.querySelector('.loader');
+let preloader = document.querySelector('.load');
 let userName = 'NikolayYurevich';
 if (url.indexOf('=') > 0)
 {
